@@ -219,3 +219,22 @@ var TxtType = function(el, toRotate, period) {
     }
 	
 /*== map js ==*/	
+
+/*-------Home Section Slider-----*/
+let index = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = document.querySelectorAll('.slide').length;
+
+document.getElementById('next').addEventListener('click', () => {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlider();
+});
+
+function updateSlider() {
+    slides.style.transform = `translateX(${-index * 100}%)`;
+}
